@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Data to make available to the XML via data binding. In this case,
+     the whole ViewModel, so that we can access the LiveData,
+     click handlers, and state variables. -->
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.codelabs.navigation.createUser.CreateUserViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/step_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.android.codelabs.navigation.FlowStepFragment">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/step_one"
+            android:textAlignment="center"
+            android:textSize="52sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <TextView
+            android:id="@+id/email_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            tools:layout_editor_absoluteX="99dp"
+            tools:layout_editor_absoluteY="273dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="60dp"
+            app:layout_constraintTop_toBottomOf="@id/text"
+            app:layout_constraintLeft_toLeftOf="@id/text"
+            />
+
+        <EditText
+            android:id="@+id/email_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:width="300dp"
+            android:text="@={viewModel.userEmail}"
+            app:layout_constraintTop_toBottomOf="@id/email_textView"
+            app:layout_constraintLeft_toLeftOf="@id/email_textView"
+            />
+
+        <TextView
+            android:id="@+id/password_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senha"
+            app:layout_constraintTop_toBottomOf="@id/email_editText"
+            app:layout_constraintLeft_toLeftOf="@id/email_editText"
+            />
+
+        <EditText
+            android:id="@+id/password_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:width="300dp"
+            android:text="@={viewModel.userPassword}"
+            app:layout_constraintTop_toBottomOf="@id/password_textView"
+            app:layout_constraintLeft_toLeftOf="@id/password_textView"
+            />
+
+        <Button
+            android:id="@+id/button_criar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Criar"
+            app:layout_constraintTop_toBottomOf="@id/password_editText"
+            app:layout_constraintLeft_toLeftOf="@id/password_editText"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="25dp"
+            android:onClick="@{() -> viewModel.insert()}"
+            />
+
+<!--        <Button-->
+<!--            android:id="@+id/next_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/next_step_button"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/button_criar"-->
+<!--            app:layout_constraintVertical_bias="0.666"-->
+<!--            />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
