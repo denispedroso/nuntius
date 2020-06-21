@@ -1,12 +1,10 @@
-# Android Navigation codelab
+# Nuntius
+This is a project based on Android Navigation codelab
 
-Content: https://codelabs.developers.google.com/codelabs/android-navigation/
+The goal is to establish an app to send and receive messages using Android and Node.JS/Socket.IO
 
 License
 -------
-
-Copyright 2018 The Android Open Source Project, Inc.
-
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements.  See the NOTICE file distributed with this work for
 additional information regarding copyright ownership.  The ASF licenses this
